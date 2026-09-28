@@ -16,7 +16,7 @@
   "main": "dist/basic.js",
   "scripts": {
     "build": "tsc",
-    "start": "npm run build && node dist/basic.js",
+    "start": "npm run build && node dist/types.js",
     "test": "npm run build"
   },
   "devDependencies": {
