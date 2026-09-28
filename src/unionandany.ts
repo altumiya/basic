@@ -1,0 +1,18 @@
+let counts: number | string = "10M"
+
+let apirequest : 'pending' | 'completed' | 'failed' = "pending"
+
+let sitting: 'window' | 'middle' | 'corner' = 'middle'
+sitting = 'window'
+
+const orders = ["12" , "13", "14" , "15"];
+let currentorder: string | undefined ;
+
+for (let order of orders) {
+    if (order === "14") {
+        currentorder = order;
+        break;
+    }
+    currentorder = "11";
+}
+console.log(currentorder)
