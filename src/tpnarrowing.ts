@@ -100,3 +100,20 @@ console.log("\n--- 5. Discriminated Union ---");
 console.log(serveSeat({ type: "lower", order: 12 }));   // serving lower seat with order number 12
 console.log(serveSeat({ type: "middle", order: 13 }));  // serving middle seat with order number 13
 console.log(serveSeat({ type: "upper", order: 14 }));   // serving upper seat with order number 14
+
+
+function printValue(value: string | number) {
+
+    if (typeof value === "string") {
+        console.log("It is a string");
+        console.log(value.toUpperCase());
+    } 
+    else {
+        console.log("It is a number");
+        console.log(value.toFixed(2));
+    }
+
+}
+
+printValue("hello");
+printValue(25);
