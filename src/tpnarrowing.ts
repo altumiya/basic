@@ -1,25 +1,33 @@
-// 1. Primitive Narrowing using typeof
-function getseat(kind: string | number) {
+
+function getseat(kind: string | number): string {
     if (typeof kind === "string") {
         return `selecting seat ${kind}`;
     }
     return `seat order: ${kind}`;
 }
 
-// 2. Literal Union Narrowing
-function getseat2(kind: "window" | "middle" | "corner") {
+console.log("--- 1. typeof narrowing ---");
+console.log(getseat("12B")); // selecting seat 12B
+console.log(getseat(45));    // seat order: 45
+
+
+function getseat2(kind: "window" | "middle" | "corner"): string {
     return `selecting seat ${kind}`;
 }
 
-// 3. Class Instance Narrowing using instanceof
+console.log("\n--- 2. Literal Union ---");
+console.log(getseat2("window")); // selecting seat window
+console.log(getseat2("middle")); // selecting seat middle
+
+
 class SideUpper {
-    serve() {
+    serve(): string {
         return "serving food";
     }
 }
 
 class SideLower {
-    serve() {
+    serve(): string {
         return "serving tea";
     }
 }
@@ -31,7 +39,13 @@ function serve(seat: SideUpper | SideLower): string {
     return seat.serve();
 }
 
-// 4. Custom User-Defined Type Guard (obj is Type)
+console.log("\n--- 3. instanceof narrowing ---");
+const upperPassenger = new SideUpper();
+const lowerPassenger = new SideLower();
+console.log(serve(upperPassenger)); // serving food
+console.log(serve(lowerPassenger)); // serving tea
+
+
 type SeatOrder = {
     type: string;
     order: number;
@@ -48,21 +62,26 @@ function isSeatOrder(obj: unknown): obj is SeatOrder {
     );
 }
 
-function serveSeatOrder(item: SeatOrder | string) {
+function serveSeatOrder(item: SeatOrder | string): string {
     if (isSeatOrder(item)) {
         return `serving ${item.type} with order number ${item.order}`;
     }
     return `serving custom seat: ${item}`;
 }
 
-// 5. Discriminated Union with Exhaustiveness Check
+console.log("\n--- 4. Custom Type Guard ---");
+console.log(serveSeatOrder({ type: "berth", order: 101 })); // serving berth with order number 101
+console.log(serveSeatOrder("unreserved cabin"));            // serving custom seat: unreserved cabin
+
+
+
 type LowerSeat = { type: "lower"; order: number };
 type MiddleSeat = { type: "middle"; order: number };
 type UpperSeat = { type: "upper"; order: number };
 
 type Seat = LowerSeat | MiddleSeat | UpperSeat;
 
-function serveSeatDiscriminated(item: Seat): string {
+function serveSeat(item: Seat): string {
     switch (item.type) {
         case "lower":
             return `serving lower seat with order number ${item.order}`;
@@ -72,7 +91,12 @@ function serveSeatDiscriminated(item: Seat): string {
             return `serving upper seat with order number ${item.order}`;
         default: {
             const _exhaustiveCheck: never = item;
-            return _exhaustiveCheck;
+            throw new Error(`Unhandled seat type: ${_exhaustiveCheck}`);
         }
     }
 }
+
+console.log("\n--- 5. Discriminated Union ---");
+console.log(serveSeat({ type: "lower", order: 12 }));   // serving lower seat with order number 12
+console.log(serveSeat({ type: "middle", order: 13 }));  // serving middle seat with order number 13
+console.log(serveSeat({ type: "upper", order: 14 }));   // serving upper seat with order number 14
