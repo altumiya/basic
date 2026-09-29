@@ -14,3 +14,9 @@ var item:number = 100;
 var item2="23"
 var converteditem2 =+item2
 console.log(item+converteditem2)
+
+
+var item:number = 100;
+var item2="23"
+var converteditem2 =+item2
+console.log(item+ +item2)
