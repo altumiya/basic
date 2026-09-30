@@ -10,6 +10,15 @@ value=true
 console.log(value)
 //for not sure what data it is only use any coz it having problem oN typechecking
 
+var value1:unknown="altaf"
+value1="altu"
+
+if (typeof value1 == 'string'){
+    console.log(value1.toUpperCase());
+}
+value1=100
+console.log(value1)
+
 let counts: number | string = "10M"
 
 let apirequest : 'pending' | 'completed' | 'failed' = "pending"
