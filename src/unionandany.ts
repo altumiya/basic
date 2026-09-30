@@ -37,3 +37,27 @@ for (let order of orders) {
     currentorder = "11";
 }
 console.log(currentorder)
+
+function fruitdata(): string|number|string[]{
+    var item =2
+    if(item>1){
+       return["apple" , "banana"]
+    }
+    else{
+        return "apricot"
+    }
+}
+console.log(fruitdata())
+
+function stdinfo(name: string | number | boolean): string {
+    if (typeof name === "string") {
+        return "std name is " + name;
+    } else if (typeof name === "number") {
+        return "std age is " + name;
+    } else {
+        return "std value is " + name;
+    }
+}
+
+console.log(stdinfo("altaf"));
+console.log(stdinfo(30));
