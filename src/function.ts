@@ -18,3 +18,16 @@ function complex():number|string{
         return name
     }
 }
+
+function loop():never{
+    while(true){
+        console.log("loop") //endless loop
+    }
+}
+
+function simple2():never{  //A function returning 'never' cannot have a reachable end point.
+    console.log(simple2)
+}
+function error(): never {  //It never reaches the end, so never is correct
+    throw new Error("Something went wrong");
+}
