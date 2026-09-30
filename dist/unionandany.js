@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 let counts = "10M";
 let apirequest = "pending";
 let sitting = 'middle';
@@ -14,4 +12,5 @@ for (let order of orders) {
     currentorder = "11";
 }
 console.log(currentorder);
+export {};
 //# sourceMappingURL=unionandany.js.map
