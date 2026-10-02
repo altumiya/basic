@@ -38,7 +38,7 @@ console.log(t1.login("sam","bio"))
 
 //inheritance example
 
-class Auth {
+export class Auth {
     login(name: string, password: string): string {
         if (name && password) {
             return `${name} logged in successfully`; 

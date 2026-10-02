@@ -21,13 +21,16 @@ function complex():number|string{
 
 function loop():never{
     while(true){
-        console.log("loop") //endless loop
+        console.log("loop") // endless loop
     }
 }
 
-function simple2():never{  //A function returning 'never' cannot have a reachable end point.
-    console.log(simple2)
+function simple2(): never {
+    while (true) {
+        console.log("loop forever")
+    }
 }
-function error(): never {  //It never reaches the end, so never is correct
+
+function error(): never {
     throw new Error("Something went wrong");
 }

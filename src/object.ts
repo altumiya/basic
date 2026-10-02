@@ -31,7 +31,11 @@ var data3 : {
     name:string,
     age:number,
     status:boolean
-    address:{}  //can declare datatype in{}
+    address: {
+        house: string,
+        sector: number,
+        town: string
+    }
 }={
     name:'altu',
     age:30,
