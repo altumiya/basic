@@ -18,8 +18,8 @@ function checkdatatype(data:string|number){
     console.log("its a string")
    }
 }
-checkdatatype(32)
-checkdatatype('altaf')
+checkdatatype(32) //its a number
+checkdatatype('altaf') //its a string
 
 
 class product20{
@@ -39,5 +39,33 @@ else{
     console.log("its a product")
 }
 }
-checkdetails(p1)
-checkdetails(o1)
+checkdetails(p1) //its a product
+checkdetails(o1) //its an order
+
+interface userdata{
+    name:string;
+    city:string
+}
+interface userinfo{
+    id:number;
+    email:string
+}
+var data22 : userdata | userinfo
+data22={
+    name:"altaf",
+    city:"mumbai"
+}
+var data23  : userdata | userinfo={
+    id:101,
+    email:"altaf@g.com"
+}
+function checkuserinfo(data: userdata|userinfo){
+  if((data as userdata).name!==undefined){
+  console.log('its a userdata');
+}
+else{
+    console.log("its userinfo")
+}
+}
+checkuserinfo(data22) //userdata
+checkuserinfo(data23) //userinfo
