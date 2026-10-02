@@ -23,3 +23,28 @@ var staff:stafftype={
 
 console.log(student)
 console.log(staff)
+
+//with class example
+
+interface cdatatype{
+    name:string;
+    displayteacher():void;
+    getstudent():string[]
+}
+
+class collegedata implements cdatatype{
+    name:string;
+    constructor(cname:string){
+        this.name=cname
+    }
+    displayteacher():void{
+        console.log("altu")
+    }
+    getstudent():string[]{
+        return ['altu','altaf']
+    }
+}
+var colg1= new collegedata('gn khalsa college')
+colg1.displayteacher(); //altu
+console.log(colg1.displayteacher()) //return altu with undefine
+console.log(colg1.getstudent()) //['altu','altaf']
