@@ -1,5 +1,5 @@
-import type userinput from "./type";
-import { Auth } from "../inheritence";
+import type userinput from "./type"; // export default interface userinput{
+import { Auth } from "../inheritence"; // export so {auth}
 
 
 
