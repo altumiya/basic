@@ -46,5 +46,5 @@ class collegedata implements cdatatype{
 }
 var colg1= new collegedata('gn khalsa college')
 colg1.displayteacher(); //altu
-console.log(colg1.displayteacher()) //return altu with undefine
+console.log(colg1.displayteacher()) //return altu with undefine because displayteacher() is void type
 console.log(colg1.getstudent()) //['altu','altaf']
