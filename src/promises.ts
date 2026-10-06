@@ -62,3 +62,11 @@ async function apicalling3():Promise<apikeys>{
 apicalling3().then((data)=>{
    console.log(data)
 })
+
+try{
+
+}catch(error){
+    if(error instanceof Error){
+        console.log(error.message) // error handling in ts 
+    }
+}
