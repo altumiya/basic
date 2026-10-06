@@ -34,3 +34,22 @@ function simple2(): never {
 function error(): never {
     throw new Error("Something went wrong");
 }
+
+function makeseat(order: string) {
+    if (!order) return null 
+    return order
+}
+
+function makeseat2(type?: string) {
+    if (!type) return null 
+    return type
+}
+
+function createseat(order:{
+    type:string;
+    number:number;
+    position:"upper"| "middle"| "lower"
+
+}):number{
+    return 4
+}
