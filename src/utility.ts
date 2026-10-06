@@ -30,3 +30,28 @@ var collegedata4:Pick<collegetype,'name' |'location'| 'student'>={
     student:1003,
     branch:3//  error due to pick
 }
+
+var collegedata6:Omit<collegetype, 'student'>={
+    name:"khalsa",
+    location:"mumbai",
+    branch:4
+    // student:2001 {Object literal may only specify known properties, and 'student' does not exist in type 'Omit<collegetype, "student">'.}
+}
+
+type apistatus= "loading"| "error" | "pending"| "success"
+
+var apicall:Exclude<apistatus, "pending"> = "success"
+// apicall="pending"  //Type '"pending"' is not assignable to type '"loading" | "error" | "success"'.
+ var apicall2:Extract<apistatus, "loading"| "success">= "loading"
+ //apicall2="error"   Type '"error"' is not assignable to type '"loading" | "success"'.
+
+ type random = string | number | undefined | null | string[];
+ var randomdata:NonNullable<random>= null  // excludes null and undefined
+
+type role = 'admin'| 'student' | 'guest'
+var option: role= "admin"
+var rolename:Record<role, string>={
+    admin:"altaf",
+    student:"altu",
+    guest:'bla blah blah'
+}
