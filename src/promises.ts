@@ -45,3 +45,20 @@ complexlogic4().then((data: string) => {
   console.log(data);
   test4();
 });
+
+
+type apikeys={
+    id: number,
+    todo: string,
+    completed: boolean,
+    userId: number
+}
+async function apicalling3():Promise<apikeys>{
+    const result = await fetch('https://dummyjson.com/todos');
+    const data = await result.json();
+    
+    return data
+}
+apicalling3().then((data)=>{
+   console.log(data)
+})
