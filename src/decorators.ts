@@ -17,3 +17,26 @@ class maths {
 
 
 var cm1= new maths(10,20)
+
+//overriding class constructor using decorator
+
+function updatedsum(target: any, key: string, descriptor: PropertyDescriptor) {
+    const originalMethod = descriptor.value;
+
+    descriptor.value = function (x: number, y: number) {
+        const result = originalMethod.call(this, x, y);
+        console.log(`the output of ${x} and ${y} is : ${result}`); // Logs internally
+        return result; // Still returns number 30
+    };
+}
+
+class CustomMaths3 {
+    @updatedsum
+    sum(x: number, y: number): number {
+        return x + y;
+    }
+}
+
+const cm2 = new CustomMaths3();
+const total = cm2.sum(10, 20);
+console.log(`the total is : ${total}`);
