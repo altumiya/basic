@@ -1,6 +1,6 @@
 class Product{
     private name:string; // to own class
-    protected price:number; // can be access to child classes
+    protected price:number; // can be access to child classes and" #" can aslo be used for private and protected 
     pId:number;
     isCart:boolean = false;
     isOrdered:boolean = false;
@@ -41,3 +41,15 @@ var order = new Order();
 console.log(order.getprice())
 //console.log(product.buyProduct())
 //console.log(product.name) //Property 'name' is private and only accessible within class 'Product'.
+
+// reveal example in modifiers tuples
+
+class seat{
+    public name :string = "side upper"
+    private secreatseat = "side middle"
+    reveal(){
+        return this.secreatseat
+    }
+}
+let s = new seat()
+console.log("Revealed seat:", s.reveal()); 
