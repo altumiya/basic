@@ -34,3 +34,16 @@ let ssobj:seatselection[]= [
 console.log("First category name:", ssobj[0].name);
 console.log("First category available?", ssobj[0].isavailable);
 console.table(ssobj);
+
+//2d arrays example 
+const seatnumber: number[] [] =[
+    [1,2,3],
+    [4,5,6]
+]
+console.log("Element at [0][1]:", seatnumber[0][1]);
+seatnumber.forEach((row, rowIndex) => {
+  row.forEach((seat, colIndex) => {
+    console.log(`Row ${rowIndex}, Col ${colIndex} -> Seat #${seat}`);
+  });
+});
+console.table(seatnumber);
