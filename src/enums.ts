@@ -44,4 +44,11 @@ function showStatus(status: OrderStatus) {
 
 showStatus(OrderStatus.Shipped); 
 
- 
+ enum seatssl {
+    lower = 1,
+    middle = 2,
+    upper = 3,
+}
+let t: [string, number] = ["upper", 10]
+t.push("side")
+console.log(t)
