@@ -48,3 +48,9 @@ var colg1 = new collegedata("gn khalsa college");
 colg1.displayteacher(); //altu
 console.log(colg1.displayteacher()); //return altu with undefine because displayteacher() is void type
 console.log(colg1.getstudent()); //['altu','altaf']
+
+ interface discount{
+    (price:number):number
+}
+let apply : discount=(p) => p* 0.5
+console.log(apply(2000))
