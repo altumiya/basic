@@ -9,3 +9,28 @@ console.log(user)
 console.log(marks)
 console.log(marks2)
 console.log(names)
+
+// 1. Array of Objects Example
+type seatselection={
+    name:string;
+    price:number;
+    seating:number;
+    isavailable:boolean
+}
+
+let ssobj:seatselection[]= [
+    {name:"upper",
+    price:2000,
+    seating:23,
+    isavailable:false},
+
+    {
+    name: "lower",
+    price: 1500,
+    seating: 15,
+    isavailable: true,
+  }
+]
+console.log("First category name:", ssobj[0].name);
+console.log("First category available?", ssobj[0].isavailable);
+console.table(ssobj);
