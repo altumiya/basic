@@ -54,3 +54,19 @@ console.log(colg1.getstudent()); //['altu','altaf']
 }
 let apply : discount=(p) => p* 0.5
 console.log(apply(2000))
+
+// merging multiple interfaces or decleration merging
+
+interface inf1 {
+    name:string
+}
+interface inf1{
+    age:number
+}
+
+let u:inf1 = {
+    name:"altu",
+    age:31
+}
+console.log("Name:", u.name);
+console.log("Age:", u.age);
