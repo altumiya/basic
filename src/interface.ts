@@ -49,24 +49,38 @@ colg1.displayteacher(); //altu
 console.log(colg1.displayteacher()); //return altu with undefine because displayteacher() is void type
 console.log(colg1.getstudent()); //['altu','altaf']
 
- interface discount{
-    (price:number):number
+interface discount {
+  (price: number): number;
 }
-let apply : discount=(p) => p* 0.5
-console.log(apply(2000))
+let apply: discount = (p) => p * 0.5;
+console.log(apply(2000));
 
 // merging multiple interfaces or decleration merging
 
 interface inf1 {
-    name:string
+  name: string;
 }
-interface inf1{
-    age:number
+interface inf1 {
+  age: number;
 }
 
-let u:inf1 = {
-    name:"altu",
-    age:31
-}
+let u: inf1 = {
+  name: "altu",
+  age: 31,
+};
 console.log("Name:", u.name);
 console.log("Age:", u.age);
+
+// interface generics example
+
+interface box<T> {
+  content: T;
+}
+let numberbox: box<number> = { content: 10 };
+let stringbox: box<string> = { content: "need string" };
+
+console.log("Content:", numberbox.content);
+console.log("Type:", typeof numberbox.content);
+
+console.log("Content:", stringbox.content);
+console.log("Type:", typeof stringbox.content);
