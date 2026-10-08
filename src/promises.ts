@@ -70,3 +70,25 @@ try{
         console.log(error.message) // error handling in ts 
     }
 }
+
+// interface generics example with api promises
+
+interface promise<T>{
+    status : number,
+    data :T
+}
+
+async function getSeat(): Promise<promise<{ seat: string }>> {
+  return {
+    status: 200,
+    data: { seat: "avail" }
+  };
+}
+async function main() {
+  const resp = await getSeat();
+
+  console.log("Status:", resp.status);
+  console.log("Seat:", resp.data.seat);
+}
+
+main();
