@@ -47,3 +47,19 @@ console.table(pair2);
 const pair3 = pairs<string, number>("side lower", 1500);
 console.log("\n--- Pair 3: Explicit Generics ---");
 console.log(`Seat: ${pair3[0]}, Price: ₹${pair3[1]}`);
+
+// 3. Box with a complex object
+type box<T> = {
+  content: T;
+};
+
+type Seat = { berth: string; price: number };
+const seatBox: box<Seat> = {
+  content: {
+    berth: "upper",
+    price: 1500,
+  },
+};
+
+console.log("Berth:", seatBox.content.berth);
+console.log("Price: ₹" + seatBox.content.price);

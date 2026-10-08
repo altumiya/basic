@@ -73,3 +73,4 @@ const updateseat= (update: Partial<seat5>)=>{
 }
 updateseat({price:2000})
 updateseat({})  // can be pass as empty object because of partial type
+
