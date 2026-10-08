@@ -7,10 +7,11 @@ console.log(a == b); //false
 const dId = Symbol('id');
 const obj = {
     [dId]: 100,
-    name: "altumiya"
+    name: "altumiya",
+    id: undefined
 };
-console.log(obj); //{ name: 'altumiya', [Symbol()]: 100 }
-console.log(obj[dId]); //100
-console.log(obj.id); //undefined
+console.log(obj); // { name: 'altumiya', [Symbol()]: 100 }
+console.log(obj[dId]); // 100
+console.log(obj.id); // undefined
 export {};
 //# sourceMappingURL=symbol.js.map

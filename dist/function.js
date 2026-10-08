@@ -17,14 +17,29 @@ function complex() {
 }
 function loop() {
     while (true) {
-        console.log("loop"); //endless loop
+        console.log("loop"); // endless loop
     }
 }
 function simple2() {
-    console.log(simple2);
+    while (true) {
+        console.log("loop forever");
+    }
 }
 function error() {
     throw new Error("Something went wrong");
+}
+function makeseat(order) {
+    if (!order)
+        return null;
+    return order;
+}
+function makeseat2(type) {
+    if (!type)
+        return null;
+    return type;
+}
+function createseat(order) {
+    return 4;
 }
 export {};
 //# sourceMappingURL=function.js.map

@@ -38,5 +38,14 @@ function showStatus(status) {
     console.log(status);
 }
 showStatus(OrderStatus.Shipped);
+var seatssl;
+(function (seatssl) {
+    seatssl[seatssl["lower"] = 1] = "lower";
+    seatssl[seatssl["middle"] = 2] = "middle";
+    seatssl[seatssl["upper"] = 3] = "upper";
+})(seatssl || (seatssl = {}));
+let t = ["upper", 10];
+t.push("side");
+console.log(t);
 export {};
 //# sourceMappingURL=enums.js.map

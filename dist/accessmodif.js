@@ -1,0 +1,51 @@
+class Product {
+    constructor(name, price, pId) {
+        this.isCart = false;
+        this.isOrdered = false;
+        this.name = name;
+        this.price = price;
+        this.pId = pId;
+    }
+    addToCart() {
+        this.isCart = true;
+    }
+    buyProduct() {
+        if (this.isCart) {
+            return `product ${this.name} is ordered at ${this.price} price`;
+        }
+        else {
+            return "no product is in cart";
+        }
+    }
+    getprice() {
+        return this.price;
+    }
+}
+class Order extends Product {
+    constructor() {
+        super("laptop", 10000, 104);
+    }
+}
+//var product=new Product("soap", 100, 101)
+//product.addToCart()
+//console.log(product.buyProduct())
+//var product=new Product("soil", 120, 102)
+//product.addToCart()
+var order = new Order();
+console.log(order.getprice());
+//console.log(product.buyProduct())
+//console.log(product.name) //Property 'name' is private and only accessible within class 'Product'.
+// reveal example in modifiers tuples
+class seat {
+    constructor() {
+        this.name = "side upper";
+        this.secreatseat = "side middle";
+    }
+    reveal() {
+        return this.secreatseat;
+    }
+}
+let s = new seat();
+console.log("Revealed seat:", s.reveal());
+export {};
+//# sourceMappingURL=accessmodif.js.map
