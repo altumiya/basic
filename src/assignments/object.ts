@@ -94,3 +94,60 @@ Object.freeze(user3);
 const isFrozen: boolean = Object.isFrozen(user3);
 console.log(isFrozen);
 // Output: true
+
+interface UserProfile {
+  name: string;
+  details: {
+    city: string;
+    skills: string[];
+  };
+}
+
+const original: UserProfile = {
+  name: "Altaf",
+  details: {
+    city: "Mumbai",
+    skills: ["JS", "TS"]
+  }
+};
+
+
+// 1. SHALLOW COPY
+
+// Shallow copy shares the nested 'details' reference
+const shallowCopy: UserProfile = { ...original };
+
+shallowCopy.name = "Ahmed";
+shallowCopy.details.city = "Delhi";
+
+console.log(original.details.city);   // "Delhi"
+console.log(shallowCopy.details.city); // "Delhi"
+
+// Reset
+original.details.city = "Mumbai";
+
+// 2. DEEP COPY
+
+// structuredClone preserves types and creates fully independent references
+const deepCopy: UserProfile = structuredClone(original);
+
+deepCopy.name = "Zaid";
+deepCopy.details.city = "Pune";
+deepCopy.details.skills.push("Python");
+
+console.log(original.details);
+// Output: { city: 'Mumbai', skills: ['JS', 'TS'] }
+
+console.log(deepCopy.details);
+// Output: { city: 'Pune', skills: ['JS', 'TS', 'Python'] }
+
+/*
+Before structuredClone(), developers relied on two imperfect approaches for deep copying:
+1. Spread Operator ({ ...obj }) / Object.assign(): Only creates a shallow copy. Nested objects and arrays still point to the same references in memory.
+2. JSON.parse(JSON.stringify(obj)): A hacky deep copy that has major limitations:
+  - Turns Date instances into plain ISO strings.
+  - Completely deletes undefined, Symbol, and Infinity/NaN (which turn into null).
+  - Silently drops Map, Set, RegExp, ArrayBuffer, and Blob.
+  - Crashes with a fatal error if the object contains circular references (TypeError: Converting circular structure to JSON).
+structuredClone() eliminates all of those issues natively.
+*/
