@@ -217,3 +217,45 @@ Object.keys(userProfile1).forEach((key: string) => {
 // Key: name
 // Key: age
 // Key: role
+
+//  Object Destructuring
+
+interface User {
+  name: string;
+  age: number;
+  city: string;
+}
+
+const user: User = {
+  name: "John",
+  age: 32,
+  city: "Mumbai"
+};
+
+// Inferred as: name: string, age: number, city: string
+const { name, age, city } = user;
+
+console.log(name); // Output: "John"
+console.log(age);  // Output: 32
+console.log(city); // Output: "Mumbai"
+
+
+// --- Advanced Object Destructuring: Renaming & Defaults ---
+
+interface Laptop {
+  brand: string;
+  model: string;
+  ram?: string; // Optional property so the default fallback is type-safe
+}
+
+const laptop: Laptop = {
+  brand: "Dell",
+  model: "XPS 15"
+};
+
+// 'brand' is renamed to 'manufacturer'
+// 'ram' defaults to "16GB"
+const { brand: manufacturer, model, ram = "16GB" } = laptop;
+
+console.log(manufacturer); // Output: "Dell"
+console.log(ram);          // Output: "16GB"
