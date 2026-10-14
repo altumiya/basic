@@ -151,3 +151,29 @@ Before structuredClone(), developers relied on two imperfect approaches for deep
   - Crashes with a fatal error if the object contains circular references (TypeError: Converting circular structure to JSON).
 structuredClone() eliminates all of those issues natively.
 */
+
+// Define explicit types using numeric keys
+interface Obj1 {
+  1: string;
+  2: string;
+}
+
+interface Obj2 {
+  3: string;
+  4: string;
+}
+
+// Or use generic Record types:
+// const obj1: Record<number, string> = { 1: "a", 2: "b" };
+// const obj2: Record<number, string> = { 3: "c", 4: "d" };
+
+const obj1: Obj1 = { 1: "a", 2: "b" };
+const obj2: Obj2 = { 3: "c", 4: "d" };
+
+const objAssign: Obj1 & Obj2 = Object.assign({}, obj1, obj2);
+console.log(objAssign);
+// Output: { '1': 'a', '2': 'b', '3': 'c', '4': 'd' }
+
+const objSpread: Obj1 & Obj2 = { ...obj1, ...obj2 };
+console.log(objSpread);
+// Output: { '1': 'a', '2': 'b', '3': 'c', '4': 'd' }
