@@ -48,3 +48,24 @@ const score1: number = 100;
 const score2: number = 200;
 const score3: number = 300;
 console.log(Array.of(score1, score2, score3));  // [100, 200, 300]
+
+//  Array Destructuring
+
+const colors: string[] = ["Red", "Green", "Blue", "Yellow"];
+
+// Inferred as: firstColor: string, secondColor: string
+const [firstColor, secondColor] = colors;
+
+console.log(firstColor);  // Output: "Red"
+console.log(secondColor); // Output: "Green"
+
+
+// --- Skipping Elements in Arrays ---
+
+const scores: number[] = [100, 85, 92, 78];
+
+// Skipping index 1 (85)
+const [firstScore, , thirdScore] = scores;
+
+console.log(firstScore); // Output: 100
+console.log(thirdScore); // Output: 92
