@@ -95,7 +95,7 @@ const isFrozen: boolean = Object.isFrozen(user3);
 console.log(isFrozen);
 // Output: true
 
-interface UserProfile {
+interface CloneableUserProfile {
   name: string;
   details: {
     city: string;
@@ -103,7 +103,7 @@ interface UserProfile {
   };
 }
 
-const original: UserProfile = {
+const original: CloneableUserProfile = {
   name: "Altaf",
   details: {
     city: "Mumbai",
@@ -115,7 +115,7 @@ const original: UserProfile = {
 // 1. SHALLOW COPY
 
 // Shallow copy shares the nested 'details' reference
-const shallowCopy: UserProfile = { ...original };
+const shallowCopy: CloneableUserProfile = { ...original };
 
 shallowCopy.name = "Ahmed";
 shallowCopy.details.city = "Delhi";
@@ -129,7 +129,7 @@ original.details.city = "Mumbai";
 // 2. DEEP COPY
 
 // structuredClone preserves types and creates fully independent references
-const deepCopy: UserProfile = structuredClone(original);
+const deepCopy: CloneableUserProfile = structuredClone(original);
 
 deepCopy.name = "Zaid";
 deepCopy.details.city = "Pune";
@@ -177,3 +177,43 @@ console.log(objAssign);
 const objSpread: Obj1 & Obj2 = { ...obj1, ...obj2 };
 console.log(objSpread);
 // Output: { '1': 'a', '2': 'b', '3': 'c', '4': 'd' }
+
+// Define an interface for the object
+interface ObjectKeysUserProfile {
+  name: string;
+  age: number;
+  role: string;
+  isActive?: boolean;
+}
+
+// 1. Create an object
+const userProfile: ObjectKeysUserProfile = {
+  name: "Alice",
+  age: 28,
+  role: "Software Developer",
+  isActive: true
+};
+
+// 2. Get keys using Object.keys()
+// By default, TypeScript types keysArray as string[]
+const keysArray: string[] = Object.keys(userProfile);
+
+// 3. Console log the array of keys
+console.log(keysArray);
+// Output: [ 'name', 'age', 'role', 'isActive' ]
+
+
+// --- Logging Keys One by One ---
+const userProfile1: ObjectKeysUserProfile = {
+  name: "Alice",
+  age: 28,
+  role: "Software Developer"
+};
+
+Object.keys(userProfile1).forEach((key: string) => {
+  console.log("Key:", key);
+});
+// Output:
+// Key: name
+// Key: age
+// Key: role
