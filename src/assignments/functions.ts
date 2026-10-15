@@ -4,3 +4,8 @@ function add2num(num1: number, num2: number): number {
 
 const result: number = add2num(5, 4);
 console.log(result); // Output: 9
+
+// Standard named or anonymous IIFE
+(function (name: string): void {
+  console.log(`Hello, ${name}`);
+})("Altaf");
