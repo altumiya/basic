@@ -1,8 +1,11 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosError } from 'axios';
 let fetchdata = async () => {
     try {
         let response = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
-        console.log(response.data);
+        console.log(`ID: ${response.data.id}`);
+        console.log(`User ID: ${response.data.userid}`);
+        console.log(`Title: ${response.data.title}`);
+        console.log(`Completed: ${response.data.completed}`);
     }
     catch (err) {
         if (axios.isAxiosError(err)) {
@@ -15,4 +18,5 @@ let fetchdata = async () => {
         }
     }
 };
+fetchdata();
 //# sourceMappingURL=axios.js.map
