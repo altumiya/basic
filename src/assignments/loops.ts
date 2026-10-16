@@ -12,3 +12,12 @@ for (let i: number = 1; i <= 20; i++) {
   }
   console.log(`value of i is ${i}`);
 }
+
+// while loop example
+
+let index: number = 0;
+
+while (index <= 10) {
+  console.log(`value of index is ${index}`);
+  index += 2;
+}
