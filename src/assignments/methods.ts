@@ -17,3 +17,17 @@ const newnums1: number[] = mynums1
 
 console.log(newnums1);
 // Output: [ 225, 264.0625, 306.25, 351.5625, 400, 451.5625, 506.25 ]
+
+
+const mynums2: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const initial: number = 0;
+
+const newnums2: number = mynums2.reduce(
+  (accumulator: number, currentValue: number): number => {
+    console.log(`a : ${accumulator} and c : ${currentValue}`);
+    return accumulator + currentValue;
+  },
+  initial
+);
+
+console.log(newnums2);
