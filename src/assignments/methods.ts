@@ -31,3 +31,23 @@ const newnums2: number = mynums2.reduce(
 );
 
 console.log(newnums2);
+
+
+interface CartItem {
+  itemname: string;
+  price: number;
+}
+
+const cart: CartItem[] = [
+  { itemname: "soap", price: 400 },
+  { itemname: "oil", price: 700 },
+  { itemname: "sapionin", price: 300 },
+  { itemname: "ghee", price: 1400 }
+];
+
+const finalt: number = cart.reduce(
+  (acc: number, item: CartItem): number => acc + item.price,
+  0
+);
+
+console.log(finalt); // 2800
