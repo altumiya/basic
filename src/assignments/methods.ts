@@ -8,3 +8,12 @@ const newnums: number[] = mynum.filter((num: number) => {
 });
 
 console.log(newnums);
+
+const mynums1: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+const newnums1: number[] = mynums1
+  .map((num) => ((num + 9) * 1.25) ** 2)
+  .filter((num) => num >= 200);
+
+console.log(newnums1);
+// Output: [ 225, 264.0625, 306.25, 351.5625, 400, 451.5625, 506.25 ]
