@@ -51,3 +51,25 @@ const finalt: number = cart.reduce(
 );
 
 console.log(finalt); // 2800
+
+
+const mydata: (string | number)[] = ["a", 1, "b", 2, 3, "c", "altaf"];
+
+function mytype(data: (string | number)[]) {
+  const string: string[] = [];
+  const number: number[] = [];
+
+  for (const d of data) {
+    if (typeof d === "string") {
+      string.push(d);
+    } else {
+      number.push(d);
+    }
+  }
+
+  return { string, number };
+}
+
+const { string, number } = mytype(mydata);
+console.log(string); // ["a", "b", "c", "altaf"]
+console.log(number); // [1, 2, 3]
