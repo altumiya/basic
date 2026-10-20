@@ -73,3 +73,13 @@ function mytype(data: (string | number)[]) {
 const { string, number } = mytype(mydata);
 console.log(string); // ["a", "b", "c", "altaf"]
 console.log(number); // [1, 2, 3]
+
+// same above by inbuilt method
+
+const mydata1: (string | number)[] = ["a", 1, "b", 2, 3, "c", "altaf"];
+
+const string1 = mydata1.filter((d): d is string => typeof d === "string");
+const number1 = mydata1.filter((d): d is number => typeof d === "number");
+
+console.log(string1); // ["a", "b", "c", "altaf"]
+console.log(number1); // [1, 2, 3]
