@@ -46,5 +46,20 @@ const scores = [100, 85, 92, 78];
 const [firstScore, , thirdScore] = scores;
 console.log(firstScore); // Output: 100
 console.log(thirdScore); // Output: 92
+const data = [2, 4, 7, 90, 32, 54];
+// Pass arr as a typed parameter instead of relying on external scope
+function reverseData(arr) {
+    const revFinal = [];
+    for (let i = arr.length - 1; i >= 0; i--) {
+        revFinal.push(arr[i]);
+    }
+    return revFinal;
+}
+const newData = reverseData(data);
+console.log(newData); // [54, 32, 90, 7, 4, 2]
+console.log(data); // [2, 4, 7, 90, 32, 54] (original array untouched)
+let data2 = [2, 4, 7, 90, 32, 54];
+let newdata = data2.reverse(); //also sur .toReverse() method reverses the original array in place and returns a reference to the same array.
+console.log(newdata); // [54, 32, 90, 7, 4, 2]
 export {};
 //# sourceMappingURL=arrayp.js.map
