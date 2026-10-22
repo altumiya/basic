@@ -259,3 +259,25 @@ const { brand: manufacturer, model, ram = "16GB" } = laptop;
 
 console.log(manufacturer); // Output: "Dell"
 console.log(ram);          // Output: "16GB"
+
+interface concat{
+    name?:string,
+    age?:number,
+    isNaN?:boolean,
+    comp?:string,
+    exp?:string
+}
+
+let obj11 :concat  = {
+    name:"altaf",
+    age:32,
+    isNaN: false
+
+}
+let obj21 : concat = {
+    comp: "ibm",
+    exp:"3 years"
+}
+let obj3 = {...obj11, ...obj21};
+
+console.log(obj3)
