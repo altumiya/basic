@@ -56,3 +56,16 @@ const add3 = (_num1: number, _num2: number): SimpleUser => ({
 });
 
 console.log(add3(3, 4)); // { username: 'altaf' }
+
+function multipleby5(num: number): number {
+  return num * 5;
+}
+
+// Namespace merges with the function to add static properties
+namespace multipleby5 {
+  export let power: number = 2;
+}
+
+console.log(multipleby5(5));          // 25
+console.log(multipleby5.power);        // 2
+console.log(multipleby5.prototype);    // {}

@@ -1,6 +1,6 @@
 type personA={name:string}
 type personB={age:number}
-type personC = personA & personB
+type personC = personA & personB  // combine multiple data types
 
 var dopA:personA={name:"altaf"}
 var dopB:personB={age:32}
