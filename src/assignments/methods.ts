@@ -110,3 +110,13 @@ function sum(a: number): SumChain {
 
 console.log(sum(1)(2)(3)(4)()); // 10
 console.log(sum(5)(10)());      // 15
+
+let array:number[] = [1, 2, 3, 4, 5];
+let result = array.map(n => n > 3);
+
+for (let i = 0; i < array.length; i++) {
+    result.push(array[i]! > 3);
+}
+result.length = array.length; // without this the result will be [false,false,false,true,true,  false,false,false,true,true]
+
+console.log(result);
