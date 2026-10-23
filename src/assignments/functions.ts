@@ -69,3 +69,35 @@ namespace multipleby5 {
 console.log(multipleby5(5));          // 25
 console.log(multipleby5.power);        // 2
 console.log(multipleby5.prototype);    // {}
+
+class CreateUser {
+  username: string;
+  score: number;
+  year: string | number;
+
+  constructor(username: string, score: number, year: string | number = "not provided") {
+    this.username = username;
+    this.score = score;
+    this.year = year;
+  }
+
+  increment(): void {
+    this.score++;
+  }
+
+  printme(): void {
+    console.log(`score is ${this.score}`);
+    console.log(`year is ${this.year}`);
+  }
+}
+
+const altaf = new CreateUser("altaf", 25, 1994);
+const altu = new CreateUser("altumiya", 25, 1994);
+
+altaf.printme();
+// score is 25
+// year is 1994
+
+altu.printme();
+// score is 25
+// year is 1994
