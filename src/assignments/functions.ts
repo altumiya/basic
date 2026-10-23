@@ -101,3 +101,28 @@ altaf.printme();
 altu.printme();
 // score is 25
 // year is 1994
+
+class SetUsername {
+  username: string;
+
+  constructor(username: string) {
+    this.username = username;
+  }
+}
+
+class CreateUser1 extends SetUsername {
+  email: string;
+  password: string;
+
+  constructor(username: string, email: string, password: string) {
+    super(username); // Equivalent to SetUsername.call(this, username) i.e. substituting another object for the current object.
+    this.email = email;
+    this.password = password;
+  }
+}
+
+const altaf1 = new CreateUser1("altaf", "altaf1@g.com", "1234");
+const altu1 = new CreateUser1("altu", "altz1@g.com", "2345");
+
+console.log(altaf1);
+console.log(altu1);
