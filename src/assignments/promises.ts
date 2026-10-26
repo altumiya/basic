@@ -8,3 +8,19 @@ const promiseOne: Promise<void> = new Promise((resolve, reject) => {
 promiseOne.then(() => {
     console.log("task is completed");
 });
+
+interface UserData {
+    user: string;
+    email: string;
+}
+
+const promise3: Promise<UserData> = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        console.log("async2 is completed");
+        resolve({ user: "altaf", email: "altaf@g.com" });
+    }, 2000);
+});
+
+promise3.then((user) => {
+    console.log(user);
+});
