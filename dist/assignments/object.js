@@ -116,5 +116,16 @@ const laptop = {
 const { brand: manufacturer, model, ram = "16GB" } = laptop;
 console.log(manufacturer); // Output: "Dell"
 console.log(ram); // Output: "16GB"
+let obj11 = {
+    name: "altaf",
+    age: 32,
+    isNaN: false
+};
+let obj21 = {
+    comp: "ibm",
+    exp: "3 years"
+};
+let obj3 = { ...obj11, ...obj21 };
+console.log(obj3);
 export {};
 //# sourceMappingURL=object.js.map

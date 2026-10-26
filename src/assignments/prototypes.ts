@@ -62,3 +62,27 @@ altaf.addCourses();
 
 const altumiya = new User("altumiya");
 altumiya.logMe();
+
+class UserWithPassword {
+    username: string;
+    email: string;
+    password: number;
+
+    constructor(username: string, email: string, password: number) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
+    encryptPassword(): string {
+        return `${this.password}abc`;
+    }
+
+    changeUsername(): string {
+        return `${this.username.toUpperCase()}`;
+    }
+}
+
+const altaf3 = new UserWithPassword("altu", "altaf@g.com", 1234);
+console.log(altaf3.encryptPassword());
+console.log(altaf3.changeUsername());
