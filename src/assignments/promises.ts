@@ -24,3 +24,32 @@ const promise3: Promise<UserData> = new Promise((resolve, reject) => {
 promise3.then((user) => {
     console.log(user);
 });
+
+
+interface UserData {
+    username: string;
+    email: string;
+}
+
+const promise4: Promise<UserData> = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        let error: boolean = false; // if true it will return error in console
+        if (!error) {
+            resolve({ username: "altaf", email: "altaf@g.com" });
+        } else {
+            reject("something is wrong");
+        }
+    }, 2000);
+});
+
+promise4
+    .then((user) => {
+        console.log(user);
+        return user.username;
+    })
+    .then((username) => {
+        console.log(username);
+    })
+    .catch((error) => {
+        console.log("error");
+    });
