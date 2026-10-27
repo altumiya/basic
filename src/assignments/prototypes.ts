@@ -86,3 +86,24 @@ class UserWithPassword {
 const altaf3 = new UserWithPassword("altu", "altaf@g.com", 1234);
 console.log(altaf3.encryptPassword());
 console.log(altaf3.changeUsername());
+
+class User {
+    email: string;
+    private _password: string;
+
+    constructor(email: string, password: string) {
+        this.email = email;
+        this.password = password; // Calls the setter
+    }
+
+    get password(): string {
+        return `${this._password}altu`;
+    }
+
+    set password(value: string) {
+        this._password = value;
+    }
+}
+
+const altaf = new User("altaf@g.com", "abc");
+console.log(altaf.password); // Output: abcaltu
