@@ -140,3 +140,24 @@ function outer(): void {
 }
 
 outer();
+
+//closure eg
+function outer(): void {
+    let username: string = "altaf";
+    let secret: string = "mysec";
+
+    function inner(): void {
+        console.log("inner", username); // inner altaf
+    }
+
+    function inner2(): void {
+        console.log("inner2", username); // inner2 altaf
+        console.log(secret); // mysec
+    }
+
+    inner();
+    inner2();
+    console.log("outer", username); // outer altaf
+}
+
+outer();
