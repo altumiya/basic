@@ -126,3 +126,17 @@ const altu1 = new CreateUser1("altu", "altz1@g.com", "2345");
 
 console.log(altaf1);
 console.log(altu1);
+
+// lexical scope eg
+function outer(): void {
+    let username: string = "altaf";
+    
+    function inner(): void {
+        console.log("inner", username); // inner altaf
+    }
+    
+    inner();
+    console.log("outer", username); // outer altaf
+}
+
+outer();
