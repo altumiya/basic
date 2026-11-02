@@ -110,3 +110,19 @@ for (let num of arrset) {
 }
 
 console.log([...repeated]); // [2, 3]
+
+
+let arr6: number[] = [1, 2, 3, 2, 4, 5, 3, 6];
+
+let repeatedd: number[] = arr6.filter((num: number, index: number) => {
+    if (arr6.indexOf(num) !== index) {
+        return true;
+    } else {
+        return false;
+    }
+});
+
+console.log(repeatedd); // [2, 3]
+
+// This method returns each repeated number only once if it appears exactly twice, but if a number appears three times, it will appear twice in the result.
+// Your practice challenge so use set method
