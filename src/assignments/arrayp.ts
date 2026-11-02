@@ -93,3 +93,20 @@ let data2: number[] = [2, 4, 7, 90, 32, 54];
 let newdata: number[] = data2.reverse(); //also sur .toReverse() method reverses the original array in place and returns a reference to the same array.
 
 console.log(newdata); // [54, 32, 90, 7, 4, 2]
+
+// set method to filter
+
+let arrset: number[] = [1, 2, 3, 2, 4, 5, 3];
+
+let seen = new Set<number>();
+let repeated = new Set<number>();
+
+for (let num of arrset) {
+    if (seen.has(num)) {
+        repeated.add(num);
+    } else {
+        seen.add(num);
+    }
+}
+
+console.log([...repeated]); // [2, 3]
