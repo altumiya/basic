@@ -126,3 +126,15 @@ console.log(repeatedd); // [2, 3]
 
 // This method returns each repeated number only once if it appears exactly twice, but if a number appears three times, it will appear twice in the result.
 // Your practice challenge so use set method
+
+// XOR method to find unique element in array 
+
+let arrxor:number[] = [2, 3, 4, 2, 3];
+
+let unique:number = 0;
+
+for (let i = 0; i < arrxor.length; i++) {
+    unique = unique ^ arrxor[i];
+}
+
+console.log(unique); // 4
