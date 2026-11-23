@@ -139,3 +139,22 @@ console.log(result);
 //   ann: { id: 'ann', name: 'Ann Smith', age: 24 },
 //   pete: { id: 'pete', name: 'Pete Peterson', age: 31 }
 // }
+
+interface Person {
+  name: string;
+  age: number;
+}
+
+const john: Person = { name: "John", age: 25 };
+const pete: Person = { name: "Pete", age: 30 };
+const mary: Person = { name: "Mary", age: 29 };
+
+const arr: Person[] = [john, pete, mary];
+
+// TypeScript automatically infers 'sum' as number from the initial value 0
+const averageAge: number =
+  arr.length > 0
+    ? arr.reduce((sum, person) => sum + person.age, 0) / arr.length
+    : 0;
+
+console.log(averageAge); // 28
