@@ -74,3 +74,43 @@ const updateseat= (update: Partial<seat5>)=>{
 updateseat({price:2000})
 updateseat({})  // can be pass as empty object because of partial type
 
+type Department = "FE" | "BE";
+
+interface Developer {
+  first: string;
+  last: string;
+  dept: Department;
+  commits: number;
+}
+
+const developers_array: Developer[] = [
+  {
+    first: "John",
+    last: "Doe",
+    dept: "FE",
+    commits: 10,
+  },
+  {
+    first: "Jane",
+    last: "Doe",
+    dept: "BE",
+    commits: 15,
+  },
+  {
+    first: "James",
+    last: "bond",
+    dept: "BE",
+    commits: 8,
+  },
+];
+
+// Record<Department, string[]> ensures the keys are strictly "FE" | "BE" and values are string arrays
+const result = developers_array.reduce<Record<Department, string[]>>(
+  (prev, curr) => {
+    prev[curr.dept].push(curr.first);
+    return prev;
+  },
+  { BE: [], FE: [] }
+);
+
+console.log(result); //{ BE: [ 'Jane', 'James' ], FE: [ 'John' ] }
