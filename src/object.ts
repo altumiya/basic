@@ -114,3 +114,28 @@ const result = developers_array.reduce<Record<Department, string[]>>(
 );
 
 console.log(result); //{ BE: [ 'Jane', 'James' ], FE: [ 'John' ] }
+
+interface User {
+  id: string;
+  name: string;
+  age: number;
+}
+
+const users: User[] = [
+  { id: "john", name: "John Smith", age: 20 },
+  { id: "ann", name: "Ann Smith", age: 24 },
+  { id: "pete", name: "Pete Peterson", age: 31 },
+];
+
+// Record<string, User> types the accumulator as an object with string keys and User values
+const result = users.reduce<Record<string, User>>((prev, curr) => {
+  prev[curr.id] = curr;
+  return prev;
+}, {});
+
+console.log(result); 
+// {
+//   john: { id: 'john', name: 'John Smith', age: 20 },
+//   ann: { id: 'ann', name: 'Ann Smith', age: 24 },
+//   pete: { id: 'pete', name: 'Pete Peterson', age: 31 }
+// }
