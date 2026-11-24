@@ -37,6 +37,15 @@ const num2: number = 1000000;
 console.log(num2.toLocaleString("en-IN")); // "10,00,000"
 console.log(num2.toLocaleString("en-US")); // "1,000,000"
 
+// TypeScript catches invalid types at compile time:
+// Math.max(10, "abc"); // ❌ TS Error: Argument of type 'string' is not assignable to parameter of type 'number'
+console.log(Math.max(10, Number("abc"))); // NaN (explicit conversion compiles, returns NaN)
+// 
+// TypeScript catches invalid types at compile time:
+// Math.max(10, "abc"); // ❌ TS Error: Argument of type 'string' is not assignable to parameter of type 'number'
+console.log(Math.max(10, Number("abc"))); // NaN (explicit conversion compiles, returns NaN)
+// Changed "abc" to "20". Since Number("abc") evaluates to NaN, it caused the unexpected output; Math.max(10, Number("20")) returns 20.
+
 var octa:number =0o1111;
 var hexa:number =0x1111;
 var binary:number =0b1111;
