@@ -20,6 +20,23 @@ console.log(num.toPrecision(8)); // "123.45600"
 console.log(num.toPrecision(2)); // "1.2e+2" (1.2 × 10² = 120)
 console.log(num.toPrecision(1)); // "1e+2"   (1 × 10² = 100)
 
+// 4. Small decimal numbers: ignores leading zeros when counting significant digits
+const small: number = 0.004567;
+console.log(small.toPrecision(2)); // "0.0046" (4 and 6 are the 2 significant digits)
+
+// 5. No argument: returns the number as a string unchanged
+console.log(num.toPrecision()); // "123.456"
+
+// 6. Return type is ALWAYS a string
+const formatted: string = num.toPrecision(4);
+console.log(typeof formatted); // "string"
+
+// toLocaleString() formats a number (or Date) into a region-specific string—
+// most commonly used for adding commas, currency symbols, or formatting dates.
+const num2: number = 1000000;
+console.log(num2.toLocaleString("en-IN")); // "10,00,000"
+console.log(num2.toLocaleString("en-US")); // "1,000,000"
+
 var octa:number =0o1111;
 var hexa:number =0x1111;
 var binary:number =0b1111;
